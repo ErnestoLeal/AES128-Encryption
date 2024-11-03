@@ -3,13 +3,13 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -g
 
 # Source files
-SOURCES = AES128.cpp stringToHex.cpp padBlock.cpp xorEncrypt.cpp shiftRows.cpp
+SOURCES = addConstant.cpp addRoundKey.cpp AES128.cpp keyExpansion.cpp mixColumns.cpp rotateWord.cpp subByte.cpp stringToHex.cpp padBlock.cpp xorEncrypt.cpp shiftRows.cpp
 
 # Object files (auto-generates .o files for each .cpp file)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 # Executable name
-EXEC = AES128
+EXEC = AES128.exe
 
 # Default target to build the executable
 all: $(EXEC)
@@ -24,4 +24,4 @@ $(EXEC): $(OBJECTS)
 
 # Clean up generated files
 clean:
-	rm -f $(OBJECTS) $(EXEC)
+	del /f $(OBJECTS) $(EXEC)

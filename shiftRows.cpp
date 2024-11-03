@@ -4,9 +4,9 @@
 #include <cstdint>
 
 void shiftRows(std::vector<uint8_t> &block) {
-
+    uint8_t temp;
     //Second row shift (+4)
-    uint8_t temp = block[1];
+    temp = block[1];
     block[1] = block[5];
     block[5] = block[9];
     block[9] = block[13];

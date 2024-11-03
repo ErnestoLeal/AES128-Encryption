@@ -9,7 +9,7 @@ Takes as parameter the current starting point of the 16byte block and the string
 
 std::vector<uint8_t> stringToHex(const std::string &input, int start, int length) {
     std::vector<uint8_t> hexOutPut;
-    for (int i = start; i < start + length && i < input.size(); i++) {
+    for (size_t i = start; i < start + static_cast<std::size_t>(length) && i < input.size(); i++) {
         hexOutPut.push_back(static_cast<uint8_t>(input[i]));
     }
     return hexOutPut;
