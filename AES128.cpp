@@ -39,8 +39,8 @@ int main() {
         std::vector<uint8_t> block = stringToHex(text, i, length);      
         blockArray.push_back(block);
     }
-    // Padding if needed
 
+    // Padding if needed
     if (blockArray.back().size() < blockSize) {
         blockArray.back() = padBlock(blockArray.back(), blockSize);
     }
@@ -49,23 +49,25 @@ int main() {
     Step 3:
     Encryption
     */
+    for (auto& block : blockArray) {
 
-for (auto& block : blockArray) {
-    // Initial AddRoundKey
-    block = xorEncrypt(block, expandedKey[0]);
+        // Initial AddRoundKey
+        block = xorEncrypt(block, expandedKey[0]);
 
-    // Main Rounds (1–9)
-    for (int round = 1; round < 10; ++round) {
-        subByte(block);                   
-        shiftRows(block);                 
-        mixColumns(block);                
-        block = xorEncrypt(block, expandedKey[round]);  
+        // Main Rounds (1–9)
+        for (int round = 1; round < 10; ++round) {
+            subByte(block);                   
+            shiftRows(block);                 
+            mixColumns(block);                
+            block = xorEncrypt(block, expandedKey[round]);  
+        }
+
+        // Final Round (round 10) 
+        subByte(block); 
+        shiftRows(block); 
+        block = xorEncrypt(block, expandedKey[10]);
     }
-    // Final Round (round 10) 
-    subByte(block); 
-    shiftRows(block); 
-    block = xorEncrypt(block, expandedKey[10]);
-}
+
     //Prints the blocks
     for (size_t blockIndex = 0; blockIndex < blockArray.size(); blockIndex++) {
             std::cout << "Encrypted Block " << blockIndex + 1 << ": ";
@@ -74,9 +76,5 @@ for (auto& block : blockArray) {
             }
             std::cout << std::endl;
         }
-
-
-    std::cout << std::endl;
-
     return 0;
 }

@@ -47,7 +47,7 @@ std::vector<std::vector<uint8_t>> expandKey(std::vector<uint8_t> &originalKey) {
         }
         expandedKey.push_back(tempKey);
         }
-        std::cout<<"Size of expandedKeys: " <<expandedKey.size()<<std::endl;
+        //std::cout<<"Size of expandedKeys: " <<expandedKey.size()<<std::endl;
     return expandedKey;
     }
     
