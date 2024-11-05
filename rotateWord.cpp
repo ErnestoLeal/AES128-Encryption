@@ -2,10 +2,11 @@
 #include <vector>
 #include <cstdint>
 
-void rotateWord(std::vector<uint8_t> &block){
-//tracker is the byte you are at right now
-//Lets say byte 47 (starting word 2)
-//Rotate 44 45 46 47 ->
-//       45 46 47 44
-    
+void rotateWord(std::vector<uint8_t> &word){
+    uint8_t temp;
+    temp = word[0];
+    word[0] = word[1];
+    word[1] = word[2];
+    word[2] = word[3];
+    word[3] = temp;
 }
