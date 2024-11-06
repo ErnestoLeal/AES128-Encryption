@@ -19,7 +19,7 @@ int main() {
     const int blockSize = 16;
 
     //Text to be encrypted
-    std::string text = "This is just a longer text just to check that the padding and block division works as intended";
+    std::string text = "Un mensaje encryptado de mas de 16 bytes 1%(19d9asd/)";
 
     //Custom original key
     std::vector<uint8_t> originalKey = {0x00, 0x11, 0x22, 0x33, 
