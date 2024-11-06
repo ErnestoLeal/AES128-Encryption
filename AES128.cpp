@@ -15,13 +15,16 @@
 
 int main() {
 
+
     const int blockSize = 16;
 
-    std::string text = "Hello World!";
+    //Text to be encrypted
+    std::string text = "This is just a longer text just to check that the padding and block division works as intended";
 
-    std::vector<uint8_t> originalKey = {0x11, 0x22, 0x33, 0x44, 
-                                        0x55, 0x66, 0x77, 0x88, 
-                                        0x9c, 0xad, 0xbe, 0xcf, 
+    //Custom original key
+    std::vector<uint8_t> originalKey = {0x00, 0x11, 0x22, 0x33, 
+                                        0x44, 0x55, 0x66, 0x77, 
+                                        0x88, 0x99, 0xaa, 0xbb, 
                                         0xcc, 0xdd, 0xee, 0xff};
                                         
 
@@ -68,7 +71,8 @@ int main() {
         block = xorEncrypt(block, expandedKey[10]);
     }
 
-    //Prints the blocks
+    //Print the encrypted blocks
+    std::cout << std::endl;
     for (size_t blockIndex = 0; blockIndex < blockArray.size(); blockIndex++) {
             std::cout << "Encrypted Block " << blockIndex + 1 << ": ";
             for (auto byte : blockArray[blockIndex]) {
@@ -76,5 +80,6 @@ int main() {
             }
             std::cout << std::endl;
         }
+    std::cout << std::endl;
     return 0;
 }

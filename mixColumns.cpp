@@ -13,11 +13,14 @@ uint8_t galoisMultiplyBy3(uint8_t value) {
 }
 
 void mixColumns(std::vector<uint8_t> &block) {
+
     for (size_t i = 0; i < 4; ++i) {
+
         uint8_t s0 = block[i * 4 + 0];
         uint8_t s1 = block[i * 4 + 1];
         uint8_t s2 = block[i * 4 + 2];
         uint8_t s3 = block[i * 4 + 3];
+
 
         block[i * 4 + 0] = galoisMultiplyBy2(s0) ^ galoisMultiplyBy3(s1) ^ s2 ^ s3;
         block[i * 4 + 1] = s0 ^ galoisMultiplyBy2(s1) ^ galoisMultiplyBy3(s2) ^ s3;

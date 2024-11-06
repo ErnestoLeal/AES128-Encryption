@@ -26,9 +26,8 @@ void subByte (std::vector<uint8_t> &block) {
     }
 }
 
-const std::vector<uint8_t> inv_sBox = {
+const std::vector<uint8_t> inv_sBox = {};
 
-};
 void inv_subByte(std::vector<uint8_t> &block) {
     for(int i = 0; i < 16; i++) {
         block[i] = inv_sBox[block[i]];

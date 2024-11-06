@@ -3,7 +3,7 @@ CXX = g++
 CXXFLAGS = -std=c++11 -Wall -g
 
 # Source files
-SOURCES = addConstant.cpp addRoundKey.cpp AES128.cpp keyExpansion.cpp mixColumns.cpp rotateWord.cpp subByte.cpp stringToHex.cpp padBlock.cpp xorEncrypt.cpp shiftRows.cpp
+SOURCES = addRoundKey.cpp AES128.cpp keyExpansion.cpp mixColumns.cpp rotateWord.cpp subByte.cpp stringToHex.cpp padBlock.cpp xorEncrypt.cpp shiftRows.cpp
 
 # Object files (auto-generates .o files for each .cpp file)
 OBJECTS = $(SOURCES:.cpp=.o)
